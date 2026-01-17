@@ -120,9 +120,15 @@ function renderPagedLinks() {
 
 // 更新分页控件
 function updatePagination(totalPages) {
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
+    const prevBtn = document.getElementById('link-collector-prev-btn');
+    const nextBtn = document.getElementById('link-collector-next-btn');
     const pageInfo = document.getElementById('link-collector-page-info');
+    
+    // 检查元素是否存在
+    if (!prevBtn || !nextBtn || !pageInfo) {
+        console.error('分页控件元素未找到');
+        return;
+    }
     
     // 更新分页信息
     pageInfo.textContent = `${currentPage} / ${totalPages}`;

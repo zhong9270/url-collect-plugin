@@ -42,7 +42,7 @@ async function addLink(linkData) {
     });
     
     await chrome.storage.local.set({ collectedLinks });
-    return { success: true, message: '添加成功' };
+    return { success: true, message: `添加成功，已采集 ${collectedLinks.length} 条链接` };
   } catch (error) {
     console.error('添加链接失败:', error);
     return { success: false, message: '添加失败' };
