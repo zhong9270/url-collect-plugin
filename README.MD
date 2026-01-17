@@ -38,3 +38,7 @@
 标题,链接
 "2024新款无线蓝牙耳机 - 某宝","https://item.taobao.com/item.htm?id=123456"
 "高性价比电动牙刷推荐 - 京东","https://item.jd.com/789012.html"
+
+
+![插件界面](./images/image.png)
+
