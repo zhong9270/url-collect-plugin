@@ -1,7 +1,8 @@
-// 分页相关全局变量
+// 全局变量
 let currentPage = 1;
 const pageSize = 10; // 每页显示10条记录
 let allLinks = [];
+let searchKeyword = '';
 
 // 页面加载完成后初始化
 window.addEventListener('DOMContentLoaded', () => {
@@ -21,6 +22,14 @@ function initPopup() {
     // 绑定分页按钮事件
     document.getElementById('link-collector-prev-btn').addEventListener('click', goToPrevPage);
     document.getElementById('link-collector-next-btn').addEventListener('click', goToNextPage);
+    
+    // 绑定搜索输入事件
+    const searchInput = document.getElementById('link-collector-search-input');
+    searchInput.addEventListener('input', (e) => {
+        searchKeyword = e.target.value.trim();
+        currentPage = 1; // 搜索时重置到第一页
+        renderPagedLinks();
+    });
 }
 
 // 从后台加载链接数据
@@ -44,11 +53,21 @@ function renderPagedLinks() {
     const tableContainer = document.querySelector('.table-container');
     const pagination = document.getElementById('link-collector-pagination');
     
+    // 搜索过滤
+    let filteredLinks = allLinks;
+    if (searchKeyword) {
+        const keyword = searchKeyword.toLowerCase();
+        filteredLinks = allLinks.filter(link => 
+            link.title.toLowerCase().includes(keyword) || 
+            link.url.toLowerCase().includes(keyword)
+        );
+    }
+    
     // 更新统计信息
-    countEl.textContent = `共 ${allLinks.length} 条记录`;
+    countEl.textContent = `共 ${filteredLinks.length} 条记录${searchKeyword ? ` (搜索: "${searchKeyword}")` : ''}`;
     
     // 显示/隐藏空状态和分页控件
-    if (allLinks.length === 0) {
+    if (filteredLinks.length === 0) {
         emptyState.style.display = 'block';
         tableContainer.style.display = 'none';
         pagination.style.display = 'none';
@@ -60,19 +79,19 @@ function renderPagedLinks() {
     }
     
     // 计算分页数据
-    const totalPages = Math.ceil(allLinks.length / pageSize);
+    const totalPages = Math.ceil(filteredLinks.length / pageSize);
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
-    const pageLinks = allLinks.slice(startIndex, endIndex);
+    const pageLinks = filteredLinks.slice(startIndex, endIndex);
     
     // 渲染表格内容
     tbody.innerHTML = '';
     
     pageLinks.forEach((link, index) => {
         // 计算原始索引，用于删除操作
-        const originalIndex = startIndex + index;
-        // 倒序序号：总数 - 原始索引
-        const displayIndex = allLinks.length - originalIndex;
+        const originalIndex = allLinks.findIndex(item => item.timestamp === link.timestamp);
+        // 倒序序号：过滤后总数 - 当前页内索引 - (当前页-1)*每页数量
+        const displayIndex = filteredLinks.length - index - (currentPage - 1) * pageSize;
         
         const row = document.createElement('tr');
         row.innerHTML = `

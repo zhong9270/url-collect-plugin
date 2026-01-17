@@ -27,31 +27,56 @@ body {
 
 /* 标题样式 */
 #link-collector-container h1 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: #2c3e50;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     text-align: center;
+}
+
+/* 搜索栏样式 */
+#link-collector-container .search-bar {
+    margin-bottom: 10px;
+}
+
+#link-collector-container .search-input {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 0.2s ease;
+    height: 30px;
+}
+
+#link-collector-container .search-input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.1);
 }
 
 /* 操作按钮区域 */
 #link-collector-container .action-bar {
     display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
+    gap: 8px;
+    margin-bottom: 10px;
     flex-wrap: wrap;
 }
 
 /* 按钮样式 */
 #link-collector-container .btn {
-    padding: 8px 16px;
+    padding: 6px 12px;
     border: none;
     border-radius: 4px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
     outline: none;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #link-collector-container .btn:hover {
@@ -102,8 +127,8 @@ body {
 
 /* 统计信息 */
 #link-collector-container .stats {
-    margin-bottom: 15px;
-    font-size: 13px;
+    margin-bottom: 10px;
+    font-size: 12px;
     color: #666;
 }
 
@@ -121,13 +146,14 @@ body {
 #link-collector-container table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 11px;
+    font-size: 10px;
 }
 
 #link-collector-container th, #link-collector-container td {
-    padding: 6px 8px;
+    padding: 4px 6px;
     text-align: left;
     border-bottom: 1px solid #e0e0e0;
+    line-height: 1.2;
 }
 
 #link-collector-container th {
@@ -305,11 +331,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 6px;
     border: 1px solid #e0e0e0;
     border-top: none;
     background-color: #fafafa;
-    gap: 15px;
+    gap: 10px;
     border-radius: 0 0 4px 4px;
     margin-top: -1px;
 }
