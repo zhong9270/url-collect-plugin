@@ -1,28 +1,32 @@
-/* 全局样式重置 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* 只对插件弹出页面应用样式 */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: 14px;
     line-height: 1.5;
     color: #333;
     background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* 弹出界面容器 */
-.container {
+#link-collector-container {
     width: 500px;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* 只对容器内的元素应用重置 */
+#link-collector-container * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* 标题样式 */
-h1 {
+#link-collector-container h1 {
     font-size: 18px;
     font-weight: 600;
     color: #2c3e50;
@@ -31,7 +35,7 @@ h1 {
 }
 
 /* 操作按钮区域 */
-.action-bar {
+#link-collector-container .action-bar {
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
@@ -39,7 +43,7 @@ h1 {
 }
 
 /* 按钮样式 */
-.btn {
+#link-collector-container .btn {
     padding: 8px 16px;
     border: none;
     border-radius: 4px;
@@ -50,37 +54,37 @@ h1 {
     outline: none;
 }
 
-.btn:hover {
+#link-collector-container .btn:hover {
     opacity: 0.9;
     transform: translateY(-1px);
 }
 
-.btn:active {
+#link-collector-container .btn:active {
     transform: translateY(0);
 }
 
-.btn-primary {
+#link-collector-container .btn-primary {
     background-color: #3498db;
     color: white;
 }
 
-.btn-secondary {
+#link-collector-container .btn-secondary {
     background-color: #95a5a6;
     color: white;
 }
 
-.btn-danger {
+#link-collector-container .btn-danger {
     background-color: #e74c3c;
     color: white;
 }
 
-.btn-small {
+#link-collector-container .btn-small {
     padding: 4px 10px;
     font-size: 12px;
 }
 
 /* 优化删除按钮样式 */
-.delete-btn {
+#link-collector-container .delete-btn {
     background-color: transparent !important;
     color: #e74c3c;
     padding: 2px 6px;
@@ -90,21 +94,21 @@ h1 {
     opacity: 0.7;
 }
 
-.delete-btn:hover {
+#link-collector-container .delete-btn:hover {
     opacity: 1;
     background-color: transparent !important;
     transform: none;
 }
 
 /* 统计信息 */
-.stats {
+#link-collector-container .stats {
     margin-bottom: 15px;
     font-size: 13px;
     color: #666;
 }
 
 /* 表格容器 */
-.table-container {
+#link-collector-container .table-container {
     border: 1px solid #e0e0e0;
     border-radius: 4px;
     background-color: #fff;
@@ -114,19 +118,19 @@ h1 {
 }
 
 /* 表格样式 */
-table {
+#link-collector-container table {
     width: 100%;
     border-collapse: collapse;
     font-size: 11px;
 }
 
-th, td {
+#link-collector-container th, #link-collector-container td {
     padding: 6px 8px;
     text-align: left;
     border-bottom: 1px solid #e0e0e0;
 }
 
-th {
+#link-collector-container th {
     background-color: #f8f9fa;
     font-weight: 600;
     color: #495057;
@@ -135,35 +139,35 @@ th {
     z-index: 10;
 }
 
-tr:hover {
+#link-collector-container tr:hover {
     background-color: #f5f5f5;
 }
 
 /* 表格列样式 */
 /* 固定列宽 */
-#links-table th:first-child,
-#links-table td:first-child {
+#link-collector-container #link-collector-links-table th:first-child,
+#link-collector-container #link-collector-links-table td:first-child {
     width: 45px;
     text-align: center;
     white-space: nowrap;
 }
 
-#links-table th:last-child,
-#links-table td:last-child {
+#link-collector-container #link-collector-links-table th:last-child,
+#link-collector-container #link-collector-links-table td:last-child {
     width: 55px;
     text-align: center;
     white-space: nowrap;
 }
 
 /* 调整内容列宽，鼠标悬停显示完整内容 */
-.title-cell {
+#link-collector-container .title-cell {
     max-width: 100px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.url-cell {
+#link-collector-container .url-cell {
     width: 100%;
     max-width: 180px;
     overflow: hidden;
@@ -171,34 +175,34 @@ tr:hover {
     white-space: nowrap;
 }
 
-.url-cell a {
+#link-collector-container .url-cell a {
     color: #3498db;
     text-decoration: none;
 }
 
-.url-cell a:hover {
+#link-collector-container .url-cell a:hover {
     text-decoration: underline;
 }
 
-.action-cell {
+#link-collector-container .action-cell {
     text-align: center;
 }
 
 /* 空状态提示 */
-.empty-state {
+#link-collector-container .empty-state {
     text-align: center;
     padding: 40px 20px;
     color: #999;
 }
 
-.empty-state .hint {
+#link-collector-container .empty-state .hint {
     font-size: 12px;
     margin-top: 10px;
     color: #bbb;
 }
 
 /* 通知提示 */
-.notification {
+#link-collector-container .notification {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -215,12 +219,12 @@ tr:hover {
     transform: translateY(20px);
 }
 
-.notification.show {
+#link-collector-container .notification.show {
     opacity: 1;
     transform: translateY(0);
 }
 
-.notification.hidden {
+#link-collector-container .notification.hidden {
     opacity: 0;
     transform: translateY(20px);
 }
@@ -274,7 +278,7 @@ tr:hover {
 }
 
 /* 示例采集按钮样式（空状态提示中使用） */
-.sample-collect-btn {
+#link-collector-container .sample-collect-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -292,12 +296,12 @@ tr:hover {
 }
 
 /* 确保表格单元格有title属性以支持悬停显示完整内容 */
-.title-cell, .url-cell a {
+#link-collector-container .title-cell, #link-collector-container .url-cell a {
     cursor: help;
 }
 
 /* 分页控件样式 */
-.pagination {
+#link-collector-container .pagination {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -310,29 +314,29 @@ tr:hover {
     margin-top: -1px;
 }
 
-.page-info {
+#link-collector-container .page-info {
     font-size: 11px;
     color: #666;
     font-weight: 500;
 }
 
 /* 禁用按钮样式 */
-.btn-disabled {
+#link-collector-container .btn-disabled {
     opacity: 0.5 !important;
     cursor: not-allowed !important;
     pointer-events: none;
 }
 
 /* 确保表格有最小宽度，支持水平滚动 */
-#links-table {
+#link-collector-container #link-collector-links-table {
     min-width: 500px;
     width: 100%;
     position: relative;
 }
 
 /* 固定操作列 */
-#links-table th:last-child,
-#links-table td:last-child {
+#link-collector-container #link-collector-links-table th:last-child,
+#link-collector-container #link-collector-links-table td:last-child {
     position: sticky;
     right: 0;
     background-color: #fff;
@@ -341,7 +345,7 @@ tr:hover {
 }
 
 /* 表头操作列样式 */
-#links-table th:last-child {
+#link-collector-container #link-collector-links-table th:last-child {
     background-color: #f8f9fa;
 }
 
@@ -388,7 +392,7 @@ tr:hover {
 
 /* 响应式设计 */
 @media (max-width: 520px) {
-    .container {
+    #link-collector-container {
         width: 350px;
     }
     

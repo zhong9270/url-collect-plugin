@@ -7,24 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div id="link-collector-container" class="container">
         <h1>链接采集器</h1>
         
         <!-- 操作按钮区域 -->
         <div class="action-bar">
-            <button id="export-btn" class="btn btn-primary">导出Excel</button>
-            <button id="copy-btn" class="btn btn-secondary">复制到剪贴板</button>
-            <button id="clear-btn" class="btn btn-danger">清空所有</button>
+            <button id="link-collector-export-btn" class="btn btn-primary">导出Excel</button>
+            <button id="link-collector-copy-btn" class="btn btn-secondary">复制到剪贴板</button>
+            <button id="link-collector-clear-btn" class="btn btn-danger">清空所有</button>
         </div>
         
         <!-- 统计信息 -->
         <div class="stats">
-            <span id="count">共 0 条记录</span>
+            <span id="link-collector-count">共 0 条记录</span>
         </div>
         
         <!-- 数据表格 -->
         <div class="table-container">
-            <table id="links-table">
+            <table id="link-collector-links-table">
                 <thead>
                     <tr>
                         <th>序号</th>
@@ -33,27 +33,27 @@
                         <th>操作</th>
                     </tr>
                 </thead>
-                <tbody id="links-tbody">
+                <tbody id="link-collector-links-tbody">
                     <!-- 数据将通过JavaScript动态生成 -->
                 </tbody>
             </table>
         </div>
         
         <!-- 分页控件 -->
-        <div id="pagination" class="pagination">
-            <button id="prev-btn" class="btn btn-small btn-secondary">上一页</button>
-            <span id="page-info" class="page-info"></span>
-            <button id="next-btn" class="btn btn-small btn-secondary">下一页</button>
+        <div id="link-collector-pagination" class="pagination">
+            <button id="link-collector-prev-btn" class="btn btn-small btn-secondary">上一页</button>
+            <span id="link-collector-page-info" class="page-info"></span>
+            <button id="link-collector-next-btn" class="btn btn-small btn-secondary">下一页</button>
         </div>
         
         <!-- 空状态提示 -->
-        <div id="empty-state" class="empty-state">
+        <div id="link-collector-empty-state" class="empty-state">
             <p>暂无采集数据</p>
             <p class="hint">点击网页上的 <span class="sample-collect-btn">采</span> 按钮采集链接</p>
         </div>
         
         <!-- 通知提示 -->
-        <div id="notification" class="notification hidden"></div>
+        <div id="link-collector-notification" class="notification hidden"></div>
     </div>
     
     <script src="popup.js"></script>

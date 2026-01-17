@@ -14,13 +14,13 @@ function initPopup() {
     loadLinks();
     
     // 绑定事件监听器
-    document.getElementById('export-btn').addEventListener('click', exportToExcel);
-    document.getElementById('copy-btn').addEventListener('click', copyToClipboard);
-    document.getElementById('clear-btn').addEventListener('click', clearAllLinks);
+    document.getElementById('link-collector-export-btn').addEventListener('click', exportToExcel);
+    document.getElementById('link-collector-copy-btn').addEventListener('click', copyToClipboard);
+    document.getElementById('link-collector-clear-btn').addEventListener('click', clearAllLinks);
     
     // 绑定分页按钮事件
-    document.getElementById('prev-btn').addEventListener('click', goToPrevPage);
-    document.getElementById('next-btn').addEventListener('click', goToNextPage);
+    document.getElementById('link-collector-prev-btn').addEventListener('click', goToPrevPage);
+    document.getElementById('link-collector-next-btn').addEventListener('click', goToNextPage);
 }
 
 // 从后台加载链接数据
@@ -38,11 +38,11 @@ function loadLinks() {
 
 // 渲染分页后的链接列表
 function renderPagedLinks() {
-    const tbody = document.getElementById('links-tbody');
-    const countEl = document.getElementById('count');
-    const emptyState = document.getElementById('empty-state');
+    const tbody = document.getElementById('link-collector-links-tbody');
+    const countEl = document.getElementById('link-collector-count');
+    const emptyState = document.getElementById('link-collector-empty-state');
     const tableContainer = document.querySelector('.table-container');
-    const pagination = document.getElementById('pagination');
+    const pagination = document.getElementById('link-collector-pagination');
     
     // 更新统计信息
     countEl.textContent = `共 ${allLinks.length} 条记录`;
@@ -103,7 +103,7 @@ function renderPagedLinks() {
 function updatePagination(totalPages) {
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
-    const pageInfo = document.getElementById('page-info');
+    const pageInfo = document.getElementById('link-collector-page-info');
     
     // 更新分页信息
     pageInfo.textContent = `${currentPage} / ${totalPages}`;
@@ -236,7 +236,7 @@ function copyToClipboard() {
 
 // 显示通知
 function showNotification(message) {
-    const notification = document.getElementById('notification');
+    const notification = document.getElementById('link-collector-notification');
     notification.textContent = message;
     notification.className = 'notification show';
     
