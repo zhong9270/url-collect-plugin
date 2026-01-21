@@ -34,6 +34,15 @@ body {
     text-align: center;
 }
 
+/* 定制信息样式 */
+#link-collector-container h1 .custom-info {
+    font-size: 12px;
+    font-weight: normal;
+    color: #666;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
 /* 搜索栏样式 */
 #link-collector-container .search-bar {
     margin-bottom: 10px;
